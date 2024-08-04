@@ -17,10 +17,8 @@ func (app *application) serve() error {
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 30 * time.Second,
 		IdleTimeout:  1 * time.Minute,
-		Handler:      nil,
+		Handler:      app.routes(),
 	}
-
-	http.HandleFunc("/healthcheck", app.healthcheck)
 
 	app.logger.Printf("Server is starting at %d", app.config.port)
 
