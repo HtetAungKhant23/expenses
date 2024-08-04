@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/htetaungkhant/go/expenses/internal/data"
 	"log"
 	"os"
 	"sync"
@@ -10,6 +11,7 @@ type application struct {
 	config config
 	wg     sync.WaitGroup
 	logger *log.Logger
+	models data.Models
 }
 
 func main() {
@@ -28,6 +30,7 @@ func main() {
 	app := application{
 		config: cfg,
 		logger: l,
+		models: data.New(db),
 	}
 
 	err = app.serve()
