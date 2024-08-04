@@ -18,6 +18,7 @@ func openDB(cfg *db) (*sql.DB, error) {
 	db.SetMaxOpenConns(cfg.maxOpenConn)
 	db.SetMaxIdleConns(cfg.maxIdleConn)
 
+	// wanna do ping testing
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
