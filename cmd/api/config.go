@@ -15,7 +15,7 @@ type db struct {
 }
 
 func loadConfig(cfg *config) {
-	flag.IntVar(&cfg.port, "port", 4000, "The port that server listen at")
+	flag.IntVar(&cfg.port, "port", 3000, "The port that server listen at")
 	flag.StringVar(&cfg.env, "env", "development", "The environment of the server")
 
 	flag.StringVar(&cfg.db.dsn, "dsn", "postgres://admin:password@localhost/expenses?sslmode=disable", "datasource to connect to postgres")
