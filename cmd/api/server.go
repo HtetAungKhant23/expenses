@@ -20,6 +20,8 @@ func (app *application) serve() error {
 		Handler:      nil,
 	}
 
+	http.HandleFunc("/healthcheck", app.healthcheck)
+
 	app.logger.Printf("Server is starting at %d", app.config.port)
 
 	// handle graceful shutdown using channel and goroutine
