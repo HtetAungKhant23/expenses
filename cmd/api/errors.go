@@ -23,3 +23,8 @@ func (app *application) serverError(w http.ResponseWriter, r *http.Request, err 
 	app.log(r, err)
 	app.error(w, r, http.StatusInternalServerError, http.StatusText(http.StatusInternalServerError))
 }
+
+func (app *application) badRequest(w http.ResponseWriter, r *http.Request, err error) {
+	app.log(r, err)
+	app.error(w, r, http.StatusBadRequest, http.StatusText(http.StatusBadRequest))
+}
